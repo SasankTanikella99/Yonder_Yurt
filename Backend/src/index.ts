@@ -26,10 +26,14 @@ app.use(cors(
     }
 ))
 
-app.use(express.static(path.join(__dirname, "../../frontend/dist")))    // serve static files from frontend
+app.use(express.static(path.join(__dirname, "../../Frontend/dist")))    // serve static files from frontend
 
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
+
+app.get('/', (req: Request, res: Response) => {
+    res.send('Hello, World!');
+  });
 
 app.listen(7070, () => {
     console.log('server is running on port 7070... ');
